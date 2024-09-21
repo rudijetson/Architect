@@ -1,8 +1,27 @@
+// Imports
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle2, AlertTriangle } from 'lucide-react';
 
-const questions = [
+// Types
+interface QuizContentProps {
+  onClose: () => void;
+}
+
+interface Question {
+  question: string;
+  options: string[];
+  tip: string;
+}
+
+interface HelpfulLink {
+  title: string;
+  url: string;
+  description: string;
+}
+
+// Constants
+const questions: Question[] = [
   {
     question: "Does your organization have a clear mission statement?",
     options: ["Yes", "No", "Not sure"],
@@ -30,7 +49,7 @@ const questions = [
   }
 ];
 
-const helpfulLinks = [
+const helpfulLinks: HelpfulLink[] = [
   {
     title: "Grant Writing 101",
     url: "/resources/grant-writing-101",
@@ -48,7 +67,9 @@ const helpfulLinks = [
   }
 ];
 
-const QuizContent = () => {
+// Component
+const QuizContent: React.FC<QuizContentProps> = () => {
+  // State
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState<string[]>([]);
   const [showResults, setShowResults] = useState(false);
@@ -56,11 +77,13 @@ const QuizContent = () => {
   const [emailSubmitted, setEmailSubmitted] = useState(false);
   const [showTip, setShowTip] = useState(false);
 
+  // Effects
   useEffect(() => {
     const timer = setTimeout(() => setShowTip(true), 3000);
     return () => clearTimeout(timer);
   }, [currentQuestion]);
 
+  // Handlers
   const handleAnswer = (answer: string) => {
     const newAnswers = [...answers, answer];
     setAnswers(newAnswers);
@@ -73,7 +96,15 @@ const QuizContent = () => {
     }
   };
 
-  const calculateScore = () => {
+  const handleEmailSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    // Here you would typically send the email to your backend
+    console.log("Email submitted:", email);
+    setEmailSubmitted(true);
+  };
+
+  // Helper functions
+  const calculateScore = (): number => {
     const score = answers.reduce((total, answer) => {
       if (answer === "Yes") return total + 2;
       if (answer === "Partially" || answer === "Some" || answer === "In progress" || answer === "In process") return total + 1;
@@ -102,13 +133,7 @@ const QuizContent = () => {
     setShowTip(false);
   };
 
-  const handleEmailSubmit = (e) => {
-    e.preventDefault();
-    // Here you would typically send the email to your backend
-    console.log("Email submitted:", email);
-    setEmailSubmitted(true);
-  };
-
+  // Render
   return (
     <div className="space-y-6">
       <h2 className="text-3xl font-bold text-cyan-600">Grant Readiness Quiz</h2>
@@ -189,7 +214,7 @@ const QuizContent = () => {
                   type="email" 
                   placeholder="Enter your email" 
                   value={email} 
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
                   required
                   className="flex-grow p-2 border border-gray-300 rounded-md"
                 />
