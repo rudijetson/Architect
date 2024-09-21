@@ -1,0 +1,32 @@
+/* Component-specific styles for the blog index page */
+.blogPostGrid {
+  @apply grid gap-8 md:grid-cols-2 lg:grid-cols-3;
+}
+
+.blogPostCard {
+  @apply bg-white shadow-md rounded-lg overflow-hidden transition-all duration-300 hover:shadow-lg;
+}
+
+.blogPostContent {
+  @apply p-6;
+}
+
+.blogPostTitle {
+  @apply text-2xl font-semibold text-gray-900 mb-2 hover:text-cyan-600 transition-colors duration-300;
+}
+
+.blogPostDate {
+  @apply text-sm text-gray-500 mb-2;
+}
+
+.blogPostExcerpt {
+  @apply text-gray-600 mb-4;
+}
+
+.blogPostLink {
+  @apply text-cyan-600 hover:text-cyan-800 font-medium transition-colors duration-300;
+}
+
+.noPostsMessage {
+  @apply text-xl text-gray-600;
+}

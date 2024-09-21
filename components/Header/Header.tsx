@@ -6,8 +6,7 @@ import { Menu, X } from 'lucide-react';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  // Remove the following line:
-  // const [_isScrolled, setIsScrolled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -16,8 +15,7 @@ const Header: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Remove this line if it's not used elsewhere:
-      // setIsScrolled(window.scrollY > 0);
+      setIsScrolled(window.scrollY > 0);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -28,7 +26,7 @@ const Header: React.FC = () => {
   }, []);
 
   return (
-    <header className={`fixed w-full z-50 transition-all duration-300 bg-gradient-to-b from-gray-950 to-gray-900`}>
+    <header className={`fixed w-full z-50 transition-all duration-300 bg-gradient-to-b from-gray-950 to-gray-900 ${isScrolled ? 'shadow-md' : ''}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -42,7 +40,7 @@ const Header: React.FC = () => {
           </div>
 
           {/* Mobile menu button */}
-          <div className="-mr-2 -my-2 md:hidden">
+          <div className="-mr-2 -my-2 lg:hidden">
             <button
               type="button"
               className="rounded-md p-2 inline-flex items-center justify-center text-white hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-cyan-500"
@@ -53,8 +51,8 @@ const Header: React.FC = () => {
             </button>
           </div>
 
-          {/* Desktop navigation */}
-          <nav className="hidden md:flex space-x-10">
+          {/* Desktop and iPad navigation */}
+          <nav className="hidden lg:flex space-x-10">
             {['About', 'Services', 'Clients', 'Contact'].map((item) => (
               <Link key={item} href={`/${item.toLowerCase()}`} className="text-base font-medium text-white hover:text-gray-200">
                 {item}
@@ -63,7 +61,7 @@ const Header: React.FC = () => {
           </nav>
 
           {/* CTA button */}
-          <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
+          <div className="hidden lg:flex items-center justify-end lg:flex-1 lg:w-0">
             <Link href="/contact" className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-gray-900 bg-cyan-400 hover:bg-cyan-500">
               Get Started
             </Link>
@@ -71,9 +69,9 @@ const Header: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile and iPad menu */}
       <div 
-        className={`fixed inset-y-0 right-0 w-full bg-gradient-to-b from-gray-950 to-gray-900 shadow-xl md:hidden transform ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-300 ease-in-out`}
+        className={`fixed inset-y-0 right-0 w-full bg-gradient-to-b from-gray-950 to-gray-900 shadow-xl lg:hidden transform ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-300 ease-in-out`}
       >
         <div className="flex items-center justify-between px-4 py-4 border-b border-gray-700">
           <div className="flex items-center">
