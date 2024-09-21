@@ -33,7 +33,7 @@ const Clients: React.FC = () => {
         
         <p className="text-xl text-gray-700 mb-12 text-center max-w-3xl mx-auto">
           We ideate, plan and most importantly, execute a customized engagement and philanthropic journey. Through
-          research, industry trends, data analysis, strategy development, and project management we're able to create
+          research, industry trends, data analysis, strategy development, and project management we&apos;re able to create
           multi-faceted marketing and fundraising plans based on insights, with a special emphasis on creative and digital
           strategy.
         </p>

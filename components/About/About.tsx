@@ -4,7 +4,7 @@ const About = () => {
   return (
     <div className="bg-yellow-400 p-8 md:p-16">
       <h2 className="text-3xl md:text-4xl font-light text-white text-center mb-12">
-        DON'T WORRY, WE'RE HERE TO HELP.
+        DON&apos;T WORRY, WE&apos;RE HERE TO HELP.
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         <ServiceCard
@@ -14,7 +14,7 @@ const About = () => {
           As a designated Chartered Advisor in Philanthropy® (CAP®), we bring a deep understanding of the philanthropic landscape and a wealth of experience to every engagement.
 
           With our support, you can feel confident in your fundraising efforts and focus on what matters most – advancing your mission and making a positive impact on your community.`}
-          buttonText="What's a CAP® ^"
+          buttonText="What's a CAP®?"
         />
         <ServiceCard
           title="MISSION MANAGEMENT MARKETING STRATEGY"
@@ -25,7 +25,7 @@ const About = () => {
           With our proven approach, we help you build a powerful mission identity and tell your story in a way that inspires and motivates action.
 
           Let us help you connect with your audience and achieve your goals through compelling and impactful vision and marketing.`}
-          buttonText="Learn more ^"
+          buttonText="Learn more"
         />
         <ServiceCard
           title="STRATEGY + CONSTITUENCY DEVELOPMENT"
@@ -36,7 +36,7 @@ const About = () => {
           With our expertise, you can move forward with confidence, knowing that you have a solid plan in place and a team of experts to support you every step of the way.
 
           Let's work together to bring your vision to life and achieve your goals.`}
-          buttonText="Let's get started ^"
+          buttonText="Let's get started"
         />
       </div>
     </div>

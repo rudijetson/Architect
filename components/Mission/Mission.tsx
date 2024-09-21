@@ -15,7 +15,7 @@ const Mission: React.FC = () => {
           </p>
           <p className="mb-8 text-base sm:text-lg">
             Whether you need help creating a cohesive and consistent identity, crafting your story, increasing your
-            organization's visibility, or improving your fundraising capacity, we're the team for the job - all at a
+            organization&apos;s visibility, or improving your fundraising capacity, we&apos;re the team for the job - all at a
             fraction of the cost of an in-house agency. Our approach is centered around building strong
             relationships with our clients, customers, and constituents, so you can trust us to deliver results that
             exceed your expectations.

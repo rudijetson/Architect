@@ -22,7 +22,13 @@ const Stats = () => {
   );
 };
 
-const StatItem = ({ value, label, description }) => (
+interface StatItemProps {
+  value: string;
+  label: string;
+  description: string;
+}
+
+const StatItem = ({ value, label, description }: StatItemProps) => (
   <div className="text-center">
     <div className="text-5xl font-bold mb-2">{value}</div>
     <div className="text-xl mb-2">{label}</div>
@@ -30,7 +36,12 @@ const StatItem = ({ value, label, description }) => (
   </div>
 );
 
-const PartnerLogo = ({ src, alt }) => (
+interface PartnerLogoProps {
+  src: string;
+  alt: string;
+}
+
+const PartnerLogo = ({ src, alt }: PartnerLogoProps) => (
   <div className="bg-white rounded-full w-full pt-[100%] relative">
     <Image src={src} alt={alt} layout="fill" objectFit="contain" className="p-4" />
   </div>

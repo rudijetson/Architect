@@ -1,6 +1,16 @@
 import React from 'react';
 
-const EngagementCard = ({ title, description, backgroundColor, textColor }) => (
+const EngagementCard = ({ 
+  title, 
+  description, 
+  backgroundColor, 
+  textColor 
+}: {
+  title: string;
+  description: string;
+  backgroundColor: string;
+  textColor: string;
+}) => (
   <div className={`${backgroundColor} ${textColor} p-6 rounded-lg shadow-md`}>
     <h3 className="text-xl font-bold mb-2">{title}</h3>
     <p>{description}</p>
@@ -25,7 +35,7 @@ const Engagement = () => {
           <p>Through our comprehensive approach to fundraising, we help our nonprofit partners create a strong and sustainable foundation for growth and impact. Whether you need assistance with strategic planning, board engagement, or marketing and clarity, we are here to help you succeed.</p>
         </div>
         
-        <p className="font-bold mb-8">Let's work together to build a bright future for your organization and the communities you serve.</p>
+        <p className="font-bold mb-8">Let&apos;s work together to build a bright future for your organization and the communities you serve.</p>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <EngagementCard

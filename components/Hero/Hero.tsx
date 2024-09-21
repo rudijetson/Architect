@@ -10,8 +10,15 @@ const fadeInUp = {
   visible: { opacity: 1, y: 0 }
 };
 
+// Define the props interface for SocialIcon
+interface SocialIconProps {
+  href: string;
+  Icon: React.ElementType;
+  label: string;
+}
+
 // Social icon component
-const SocialIcon = ({ href, Icon, label }) => (
+const SocialIcon: React.FC<SocialIconProps> = ({ href, Icon, label }) => (
   <motion.a 
     href={href}
     aria-label={label}
