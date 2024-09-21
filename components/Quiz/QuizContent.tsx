@@ -96,7 +96,8 @@ const QuizContent: React.FC<QuizContentProps> = () => {
     }
   };
 
-  const handleEmailSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+// Handlers
+const handleEmailSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // Here you would typically send the email to your backend
     console.log("Email submitted:", email);
